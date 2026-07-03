@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M. Wahab — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f8fa;
+    --panel:#ffffff;
+    --ink:#12161c;
+    --ink-soft:#4b5563;
+    --line:#e2e5ea;
+    --blue:#2f6fed;
+    --teal:#16a394;
+    --amber:#f2a93b;
+    --mono:'JetBrains Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+    --display:'Space Grotesk', sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(247,248,250,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:880px; margin:0 auto; padding:16px 28px;
+  }
+  .logo{
+    font-family:var(--mono); font-size:14px; font-weight:600;
+    letter-spacing:0.02em;
+  }
+  .logo::before{content:'~/'; color:var(--blue);}
+  .nav-links{display:flex; gap:24px; list-style:none;}
+  .nav-links a{
+    font-family:var(--mono); font-size:13px; color:var(--ink-soft);
+    text-decoration:none; transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--blue);}
+
+  /* ---------- HERO / TERMINAL ---------- */
+  .hero{padding:72px 0 56px;}
+  .console{
+    background:var(--ink);
+    color:#e7ecf3;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -20px rgba(18,22,28,0.35);
+  }
+  .console-bar{
+    display:flex; align-items:center; gap:7px;
+    padding:11px 16px;
+    background:#1b212b;
+    border-bottom:1px solid #2a323f;
+  }
+  .dot{width:10px; height:10px; border-radius:50%;}
+  .dot.r{background:#ff5f57;}
+  .dot.y{background:#febc2e;}
+  .dot.g{background:#28c840;}
+  .console-title{
+    margin-left:8px; font-family:var(--mono); font-size:12px; color:#8b95a5;
+  }
+  .console-body{
+    padding:26px 24px 30px;
+    font-family:var(--mono);
+    font-size:14.5px;
+  }
+  .console-body .line{margin-bottom:6px; white-space:pre-wrap;}
+  .prompt{color:var(--teal);}
+  .path{color:#8b95a5;}
+  .out{color:#c7cedb;}
+  .typed{border-right:2px solid var(--amber); animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{border-color:transparent;}}
+
+  .hero h1{
+    font-family:var(--display);
+    font-size:clamp(30px, 5vw, 44px);
+    font-weight:700;
+    margin-top:28px;
+    letter-spacing:-0.01em;
+  }
+  .hero .role{
+    font-family:var(--mono);
+    color:var(--blue);
+    font-size:15px;
+    margin-top:8px;
+  }
+  .hero p.lede{
+    margin-top:16px;
+    max-width:60ch;
+    color:var(--ink-soft);
+    font-size:16px;
+  }
+  .hero .actions{margin-top:26px; display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px;
+    padding:10px 18px; border-radius:6px;
+    text-decoration:none; display:inline-block;
+    border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn.primary{background:var(--ink); color:#fff;}
+  .btn.ghost{border-color:var(--line); color:var(--ink);}
+
+  /* ---------- SECTION HEADINGS ---------- */
+  section{padding:56px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .sec-head{
+    display:flex; align-items:baseline; gap:10px;
+    margin-bottom:28px;
+  }
+  .sec-head .tag{
+    font-family:var(--mono); font-size:12px; color:var(--blue);
+    background:rgba(47,111,237,0.08); padding:3px 9px; border-radius:4px;
+  }
+  .sec-head h2{
+    font-family:var(--display); font-size:24px; font-weight:600;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:32px;
+  }
+  .about-grid p{color:var(--ink-soft); margin-bottom:14px;}
+  .about-grid strong{color:var(--ink);}
+  .facts{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px;
+    font-family:var(--mono); font-size:13px;
+  }
+  .facts .row{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:9px 0; border-bottom:1px dashed var(--line);
+  }
+  .facts .row:last-child{border-bottom:none;}
+  .facts .k{color:var(--ink-soft);}
+  .facts .v{text-align:right;}
+
+  /* ---------- SKILLS AS TEST RESULTS ---------- */
+  .test-suite{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden;
+  }
+  .test-row{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 18px;
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:13.5px;
+  }
+  .test-row:last-child{border-bottom:none;}
+  .status{
+    font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px;
+    background:rgba(22,163,148,0.1); color:var(--teal);
+    flex-shrink:0; letter-spacing:0.03em;
+  }
+  .test-name{flex:1; color:var(--ink);}
+  .test-time{color:var(--ink-soft); font-size:12px;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{border-left:2px solid var(--line); padding-left:24px;}
+  .job{position:relative; padding-bottom:32px;}
+  .job:last-child{padding-bottom:0;}
+  .job::before{
+    content:''; position:absolute; left:-31px; top:4px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--blue); border:2px solid var(--bg);
+    box-shadow:0 0 0 2px var(--blue);
+  }
+  .job-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;}
+  .job-title{font-family:var(--display); font-weight:600; font-size:16.5px;}
+  .job-date{font-family:var(--mono); font-size:12px; color:var(--ink-soft);}
+  .job-company{color:var(--blue); font-size:14px; margin-top:2px;}
+  .job-desc{color:var(--ink-soft); margin-top:8px; font-size:14.5px;}
+
+  /* ---------- PROJECTS ---------- */
+  .projects{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:20px; transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:var(--blue); transform:translateY(-2px);}
+  .card h3{font-family:var(--display); font-size:17px; margin-bottom:8px;}
+  .card p{color:var(--ink-soft); font-size:14px; margin-bottom:12px;}
+  .stack{display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{
+    font-family:var(--mono); font-size:11px; color:var(--ink-soft);
+    border:1px solid var(--line); padding:2px 8px; border-radius:4px;
+  }
+  .card a.link{
+    display:inline-block; margin-top:14px; font-family:var(--mono);
+    font-size:12.5px; color:var(--blue); text-decoration:none;
+  }
+  .card a.link:hover{text-decoration:underline;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-console{
+    background:var(--ink); color:#e7ecf3; border-radius:10px;
+    padding:28px 26px; font-family:var(--mono); font-size:14px;
+  }
+  .contact-console .line{margin-bottom:10px;}
+  .contact-console a{color:var(--amber); text-decoration:none;}
+  .contact-console a:hover{text-decoration:underline;}
+
+  footer{
+    padding:28px 0 48px; text-align:center;
+    color:var(--ink-soft); font-family:var(--mono); font-size:12px;
+  }
+
+  @media (max-width:640px){
+    .about-grid{grid-template-columns:1fr;}
+    .projects{grid-template-columns:1fr;}
+    .nav-links{gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">mwahab</div>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" id="top">
+    <div class="console">
+      <div class="console-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="console-title">whoami.sh</span>
+      </div>
+      <div class="console-body">
+        <div class="line"><span class="prompt">$</span> <span class="path">~</span> whoami</div>
+        <div class="line out" id="typedOut"></div>
+      </div>
+    </div>
+
+    <h1>Building software, then proving it works.</h1>
+    <p class="role">Senior Software Engineer · QA &amp; Test Engineering background</p>
+    <p class="lede">
+      I design and ship full-stack applications, and I bring a quality-first
+      mindset to every layer — from automated test coverage to production
+      reliability. Currently building a full-stack editorial platform with
+      ASP.NET Core and React.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head"><span class="tag">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>
+          I'm a software engineer with a dual background spanning
+          <strong>development</strong> and <strong>quality engineering</strong>.
+          I've worked across roles as a Senior Software Engineer, Software
+          Developer, and Senior QA Engineer — which means I don't just write
+          features, I think about how they'll break, how they'll be tested,
+          and how they'll hold up in production.
+        </p>
+        <p>
+          Outside of client and product work, I'm building a personal
+          full-stack blog platform: an ASP.NET Core Web API backend with JWT
+          authentication and role-based access, paired with a React +
+          TypeScript frontend using Tiptap for rich editing and TanStack
+          Query for data fetching.
+        </p>
+      </div>
+      <div class="facts">
+        <div class="row"><span class="k">Focus</span><span class="v">Full-stack engineering</span></div>
+        <div class="row"><span class="k">Background</span><span class="v">Dev + QA</span></div>
+        <div class="row"><span class="k">Backend</span><span class="v">.NET 8 / C#</span></div>
+        <div class="row"><span class="k">Frontend</span><span class="v">React / TypeScript</span></div>
+        <div class="row"><span class="k">Status</span><span class="v" style="color:var(--teal)">Open to opportunities</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="tag">02</span><h2>Skills</h2></div>
+    <div class="test-suite">
+      <div class="test-row"><span class="status">PASS</span><span class="test-name">C# / ASP.NET Core Web API</span><span class="test-time">expert</span></div>
+      <div class="test-row"><span class="status">PASS</span><span class="test-name">React / TypeScript</span><span class="test-time">advanced</span></div>
+      <div class="test-row"><span class="status">PASS</span><span class="test-name">Entity Framework Core / SQL Server</span><span class="test-time">advanced</span></div>
+      <div class="test-row"><span class="status">PASS</span><span class="test-name">Test Automation &amp; QA Strategy</span><span class="test-time">expert</span></div>
+      <div class="test-row"><span class="status">PASS</span><span class="test-name">JWT Auth &amp; Role-Based Access Control</span><span class="test-time">advanced</span></div>
+      <div class="test-row"><span class="status">PASS</span><span class="test-name">Integration &amp; Regression Testing</span><span class="test-time">advanced</span></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><span class="tag">03</span><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Senior Software Engineer</span>
+          <span class="job-date">Edit dates</span>
+        </div>
+        <div class="job-company">Company name</div>
+        <p class="job-desc">
+          Led development on core product features, collaborating closely
+          with QA to build well-tested, production-ready releases.
+        </p>
+      </div>
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Software Developer</span>
+          <span class="job-date">Edit dates</span>
+        </div>
+        <div class="job-company">Company name</div>
+        <p class="job-desc">
+          Built and maintained application features across the stack,
+          working within an agile delivery process.
+        </p>
+      </div>
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Senior QA Engineer</span>
+          <span class="job-date">Edit dates</span>
+        </div>
+        <div class="job-company">Company name</div>
+        <p class="job-desc">
+          Owned test strategy, automation, and bug triaging across
+          release cycles, partnering with engineering to raise quality
+          standards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><span class="tag">04</span><h2>Projects</h2></div>
+    <div class="projects">
+      <div class="card">
+        <h3>Editorial Blog Platform</h3>
+        <p>Full-stack publishing app with JWT auth, role-based access, and a rich Tiptap-powered editor.</p>
+        <div class="stack">
+          <span class="chip">ASP.NET Core</span>
+          <span class="chip">React</span>
+          <span class="chip">EF Core</span>
+          <span class="chip">TypeScript</span>
+        </div>
+        <a class="link" href="#" target="_blank" rel="noopener">View repo →</a>
+      </div>
+      <div class="card">
+        <h3>Project name</h3>
+        <p>Short description of what this project does and the problem it solves.</p>
+        <div class="stack">
+          <span class="chip">Edit</span>
+          <span class="chip">stack</span>
+        </div>
+        <a class="link" href="#" target="_blank" rel="noopener">View repo →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head"><span class="tag">05</span><h2>Contact</h2></div>
+    <div class="contact-console">
+      <div class="line"><span class="prompt">$</span> cat contact.json</div>
+      <div class="line">{</div>
+      <div class="line">&nbsp;&nbsp;"email": "<a href="mailto:you@example.com">you@example.com</a>",</div>
+      <div class="line">&nbsp;&nbsp;"github": "<a href="https://github.com/mwahab" target="_blank" rel="noopener">github.com/mwahab</a>",</div>
+      <div class="line">&nbsp;&nbsp;"linkedin": "<a href="#" target="_blank" rel="noopener">linkedin.com/in/your-handle</a>"</div>
+      <div class="line">}</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>© <span id="year"></span> mwahab — built with HTML, CSS &amp; a little JS</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const text = "senior_software_engineer && qa_background";
+  const el = document.getElementById('typedOut');
+  el.classList.add('typed');
+  let i = 0;
+  function type(){
+    if(i <= text.length){
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, 38);
+    }
+  }
+  type();
+</script>
+
+</body>
+</html>
