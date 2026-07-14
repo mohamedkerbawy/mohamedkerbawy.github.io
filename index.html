@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Mohamed Kerbawy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
 <style>
+
   :root{
     --bg:#f7f8fa;
     --panel:#ffffff;
@@ -65,8 +67,39 @@
   }
   .nav-links a:hover{color:var(--blue);}
 
+  .menu-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:32px; height:32px; background:none; border:none; cursor:pointer;
+    padding:4px;
+  }
+  .menu-toggle span{
+    display:block; width:100%; height:2px; background:var(--ink);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:860px){
+    .menu-toggle{display:flex;}
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--bg); border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; padding:0 28px;
+      transition:max-height .25s ease, padding .25s ease;
+    }
+    .nav-links.open{max-height:520px; padding:8px 28px 18px;}
+    .nav-links li{width:100%;}
+    .nav-links a{
+      display:block; padding:12px 0; font-size:14px;
+      border-bottom:1px solid var(--line);
+    }
+    .nav-links li:last-child a{border-bottom:none;}
+  }
+
   /* ---------- HERO / TERMINAL ---------- */
-  .hero{padding:30px 0 56px;}
+  .hero{padding:56px 0;}
   .console{
     background:var(--ink);
     color:#e7ecf3;
@@ -103,7 +136,7 @@
     font-family:var(--display);
     font-size:clamp(30px, 5vw, 44px);
     font-weight:700;
-    margin-top:20px;
+    /*margin-top:15px;*/
     letter-spacing:-0.01em;
   }
   .hero .role{
@@ -276,8 +309,8 @@
     .about-grid{grid-template-columns:1fr;}
     .projects{grid-template-columns:1fr;}
     .skill-groups, .tool-groups{grid-template-columns:1fr;}
-    .nav-links{gap:14px;}
   }
+
 </style>
 </head>
 <body>
@@ -285,15 +318,18 @@
 <header>
   <nav>
     <div class="logo">mohamedkerbawy</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">about</a></li>
       <li><a href="#study">studyCourses</a></li>
-      <li><a href="#skills">technicalSkills</a></li>
+      <li><a href="#skills">skills</a></li>
       <li><a href="#tools">tools</a></li>
       <li><a href="#contact">contact</a></li>
       <li><a href="#">blog ↗</a></li>
       <li><a href="cv.html">CV ↗</a></li>
     </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
 
@@ -301,12 +337,16 @@
 
   <section class="hero" id="top">
     <h1>Mohamed Kerbawy</h1>
-    <p class="role">Senior Software Quality Engineering Consultant</p>
+    <p class="role">Software Quality Engineering Expert</p>
     <p class="lede">
-      I help teams build reliable software through rigorous test strategy,
-      automation, and quality processes — backed by hands-on experience
-      writing the code myself. Currently building a full-stack editorial
-      platform with ASP.NET Core and React as a personal project.
+      I help organizations deliver reliable, scalable, production-ready software through technical quality engineering. 
+      With 14+ years of experience in software development and Quality Engineering, 
+      I specialize in API and backend testing, database validation, performance testing, 
+      test automation architecture, and risk-based test strategy. 
+      I don't just find defects — I diagnose their root causes and help teams resolve them faster. 
+      I work across the full software development lifecycle, 
+      embedding automation and CI/CD-integrated testing to reduce delivery risk, 
+      accelerate software delivery, and increase release confidence.
     </p>
     <div class="actions">
       <a class="btn primary" href="cv.html">View CV</a>
@@ -333,37 +373,43 @@
     <div class="about-grid">
       <div>
         <p>
-          I'm a <strong>Senior Software Quality Engineering Consultant</strong>,
-          helping teams design test strategy, build automation, and raise
-          release quality. Before moving into quality engineering, I spent
-          years as a <strong>software developer</strong> — so I approach
-          testing from the inside, understanding how systems are actually
-          built, not just how they're supposed to behave.
+          I'm a <strong>Software Quality Engineering Expert</strong> with 14+ years of experience in the software industry, 
+          specializing in <strong>software development</strong> and <strong>Quality Engineerin</strong>g. 
+          Throughout my career, I have focused on building quality into software from the earliest stages of development, 
+          helping organizations deliver reliable, scalable, and production-ready applications.
         </p>
         <p>
-          That dual perspective means I can work across the full delivery
-          lifecycle: shaping test plans, driving automation, triaging bugs,
-          and collaborating closely with engineering teams to close the gap
-          between "it works" and "it's proven to work."
+          My expertise spans technical quality engineering, including API and backend testing, database validation, 
+          performance testing, test automation architecture, CI/CD-integrated quality practices, and risk-based testing. 
+          I also have extensive experience in functional testing and business domain validation across enterprise-scale systems, 
+          ensuring that software not only meets technical standards but also fulfills business objectives.
         </p>
         <p>
-          Outside of client work, I'm building a personal full-stack blog
-          platform: an ASP.NET Core Web API backend with JWT authentication
-          and role-based access, paired with a React + TypeScript frontend
-          using Tiptap for rich editing and TanStack Query for data fetching.
+          With a strong software development background, I approach testing from an engineering perspective. 
+          I analyze system architecture, identify quality risks early, diagnose the root causes of defects, 
+          and design effective testing strategies that improve software reliability while reducing delivery risk. 
+          I believe quality should be engineered throughout the Software Development Lifecycle rather than inspected at the end.
+        </p>
+        <p>
+          I enjoy solving complex quality challenges, optimizing testing approaches, 
+          and continuously learning new technologies and engineering practices that help organizations build better software with greater confidence.
         </p>
       </div>
       <div class="facts">
-        <div class="row"><span class="k">Role</span><span class="v">Sr. QA Engineering Consultant</span></div>
-        <div class="row"><span class="k">Background</span><span class="v">Former Software Developer</span></div>
-        <div class="row"><span class="k">Specialty</span><span class="v">Test Strategy &amp; Automation</span></div>
-        <div class="row"><span class="k">Also builds in</span><span class="v">.NET 8 · React / TS</span></div>
-        <div class="row"><span class="k">Status</span><span class="v" style="color:var(--teal)">Open to opportunities</span></div>
+        <div class="row"><span class="k">Role</span><span class="v">Software QE Expert</span></div>
+        <div class="row"><span class="k">Background</span><span class="v">Software Development</span></div>
+        <div class="row"><span class="k">Specialty</span><span class="v">Software Testing &amp; <br/>Quality Engineering</span></div>
+        <div class="row"><span class="k">Focus</span><span class="v">Technical Testing</span></div>
+        <div class="row"><span class="k">Tasks</span><span class="v">White-box Testing <br/>Non-Functional Testing <br/>Test Automation <br/>CI/CD</span></div>
+        <div class="row"><span class="k">White-box <br/>Testing</span><span class="v">API &amp; Backend Testing <br/> Database Validation <br/> Unit Testing</span></div>
+        <div class="row"><span class="k">Non-Functional <br/>Testing</span><span class="v">Reliability <br/> Performance <br/> Maintainability <br/> Portability <br/> Security <br/> Compatibility</span></div>
+        <div class="row"><span class="k">Testing <br/>Environment</span><span class="v">Local &amp; Build <br/> Stage &amp; Integration <br/> UAT &amp; Preproduction <br/> Production</span></div>
+        <!--<div class="row"><span class="k">Status</span><span class="v" style="color:var(--teal)">Open to opportunities</span></div>-->
       </div>
     </div>
   </section>
 
-  <section id="study">
+ <section id="study">
     <div class="sec-head"><span class="tag">02</span><h2>Study Courses</h2></div>
     <div class="skill-groups">
       <div class="skill-group">
@@ -428,10 +474,10 @@
   </section>
 
   <section id="skills">
-    <div class="sec-head"><span class="tag">03</span><h2>Technical Skills</h2></div>
+    <div class="sec-head"><span class="tag">03</span><h2>Skills</h2></div>
     <div class="skill-groups">
       <div class="skill-group">
-        <h3>General</h3>
+        <h3>General Tech skills</h3>
         <div class="chip-row">
           <a class="chip" href="https://en.wikipedia.org/wiki/Test_strategy" target="_blank" rel="noopener">Coding</a>
           <a class="chip" href="https://en.wikipedia.org/wiki/Test_plan" target="_blank" rel="noopener">Shell Scripting</a>
@@ -446,14 +492,28 @@
         <div class="chip-row">
           <a class="chip" href="https://www.selenium.dev/" target="_blank" rel="noopener">Back-end Development</a>
           <a class="chip" href="https://playwright.dev/" target="_blank" rel="noopener">Front-end Development</a>
-          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Database Management</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Database Development</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Unit Testing</a>
         </div>
       </div>
       <div class="skill-group">
         <h3>Software Quality Engineering</h3>
         <div class="chip-row">
           <a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener">Business Domain Testing</a>
-          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Technical Testing</a>
+          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">API Testing</a>
+          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Database Testing</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Performance Testing</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Test Automation</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">UAT Coordination</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Test Management</a>
+        </div>
+      </div>
+       <div class="skill-group">
+        <h3>Soft skills</h3>
+        <div class="chip-row">
+          <a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener">Team Leadership</a>
+          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Mentorship</a>
+          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Cross-Functional Teamwork</a>
         </div>
       </div>
     </div>
@@ -463,130 +523,68 @@
     <div class="sec-head"><span class="tag">04</span><h2>Tools</h2></div>
     <div class="tool-groups">
       <div class="tool-group">
-        <h3>Coding Editors and IDEs</h3>
+        <h3>IDE's &amp; Shell Scripting</h3>
         <div class="chip-row">
           <a class="chip" href="https://www.selenium.dev/" target="_blank" rel="noopener">Visual Studio Code</a>
           <a class="chip" href="https://playwright.dev/" target="_blank" rel="noopener">MS Visual Studio</a>
           <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">IntelliJ IDEA</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>Shell Scripting</h3>
-        <div class="chip-row">
-          <a class="chip" href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener">Command Prompt</a>
-          <a class="chip" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Bash</a>
           <a class="chip" href="https://learn.microsoft.com/en-us/sql/ssms/" target="_blank" rel="noopener">PowerShell</a>
+          <a class="chip" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Bash</a>
         </div>
       </div>
       <div class="tool-group">
-        <h3>Source Control</h3>
+        <h3>ALM &amp; CI/CD</h3>
         <div class="chip-row">
           <a class="chip" href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener">Git</a>
-          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>ALM</h3>
-        <div class="chip-row">
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Azure DevOps</a>
-          <a class="chip" href="https://github.com/" target="_blank" rel="noopener">Jira</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>Containers</h3>
-        <div class="chip-row">
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Docker</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>CI/CD</h3>
-        <div class="chip-row">
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Jenkins</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Azure Pipelines</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">GitHub Actions</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Azure Pipelines</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Jenkins</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Azure DevOps</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Jira</a>
         </div>
       </div>
       <div class="tool-group">
-        <h3>Server-side Languages</h3>
+        <h3>Back-end Development</h3>
         <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">C#</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Java</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>Back-end Frameworks</h3>
-        <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">ASP.NET</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>APIs</h3>
-        <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">WCF Services</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Web API</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SQL Server</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Oracle DB</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Docker</a>
         </div>
       </div>
        <div class="tool-group">
-        <h3>Web Technologies</h3>
+        <h3>Front-end Development</h3>
         <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">HTML</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">CSS</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">XML</a>
-        </div>
-      </div>
-       <div class="tool-group">
-        <h3>Client-side Languages</h3>
-        <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">JavaScript</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">TypeScript</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>Front-end Frameworks</h3>
-        <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Blazor</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Angular</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Vue.js</a>
         </div>
       </div>
-        <div class="tool-group">
-        <h3>Databases</h3>
-        <div class="chip-row">
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SQL Server</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Oracle</a>
-        </div>
-      </div>
       <div class="tool-group">
-        <h3>Unit Testing</h3>
+        <h3>Technical Testing</h3>
         <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">NUnit</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">MSTest</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">xUnit.net</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Chai and Mocha</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Chai &amp; Mocha</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">TestNG</a>
-        </div>
-      </div>
-      <div class="tool-group">
-        <h3>API Testing</h3>
-        <div class="chip-row">
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SoapUI</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Postman</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SoapUI</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Rest-Assured</a>
-        </div>
-      </div>
-       <div class="tool-group">
-        <h3>Non-Functional Testing</h3>
-        <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">JMeter</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">OWASP ZAP</a>
-        </div>
-      </div>
-        <div class="tool-group">
-        <h3>Test Automation</h3>
-        <div class="chip-row">
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Selenium</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Playwright</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Appium</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Playwright</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Cucumber</a>
         </div>
       </div>
@@ -620,10 +618,27 @@
 
 </div>
 
-<footer>© <span id="year"></span> mohamedkerbawy</footer>
+<footer>© <span id="year"></span> mohamedkerbawy — built with HTML, CSS &amp; JS</footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>
 
 </body>
