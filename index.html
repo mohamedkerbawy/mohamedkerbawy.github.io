@@ -60,6 +60,11 @@
     letter-spacing:0.02em;
   }
   .logo::before{content:'~/'; color:var(--blue);}
+
+ .logo a{
+    text-decoration:none;
+  }
+
   .nav-links{display:flex; gap:24px; list-style:none;}
   .nav-links a{
     font-family:var(--mono); font-size:13px; color:var(--ink-soft);
@@ -187,7 +192,7 @@
   .facts{
     background:var(--panel); border:1px solid var(--line); border-radius:10px;
     padding:18px 20px;
-    font-family:var(--mono); font-size:13px;
+    font-family:var(--mono); font-size:12px;
   }
   .facts .row{
     display:flex; justify-content:space-between; gap:12px;
@@ -317,7 +322,7 @@
 
 <header>
   <nav>
-    <div class="logo">mohamedkerbawy</div>
+    <div class="logo"><a href="#top">mohamedkerbawy</a></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">about</a></li>
       <li><a href="#study">studyCourses</a></li>
@@ -397,10 +402,11 @@
       </div>
       <div class="facts">
         <div class="row"><span class="k">Role</span><span class="v">Software QE Expert</span></div>
+        <div class="row"><span class="k">Study</span><span class="v">Computer Science<br/>Software Engineering</span></div>
         <div class="row"><span class="k">Background</span><span class="v">Software Development</span></div>
-        <div class="row"><span class="k">Specialty</span><span class="v">Software Testing &amp; <br/>Quality Engineering</span></div>
-        <div class="row"><span class="k">Focus</span><span class="v">Technical Testing</span></div>
-        <div class="row"><span class="k">Tasks</span><span class="v">White-box Testing <br/>Non-Functional Testing <br/>Test Automation <br/>CI/CD</span></div>
+        <div class="row"><span class="k">Major Specialty</span><span class="v">Software Testing &amp; <br/>Quality Engineering</span></div>
+        <div class="row"><span class="k">Minor Specialty</span><span class="v">Technical Testing</span></div>
+        <div class="row"><span class="k">Technical Testing</span><span class="v">White-box Testing <br/>Non-Functional Testing <br/>Test Automation <br/>CI/CD Quality</span></div>
         <div class="row"><span class="k">White-box <br/>Testing</span><span class="v">API &amp; Backend Testing <br/> Database Validation <br/> Unit Testing</span></div>
         <div class="row"><span class="k">Non-Functional <br/>Testing</span><span class="v">Reliability <br/> Performance <br/> Maintainability <br/> Portability <br/> Security <br/> Compatibility</span></div>
         <div class="row"><span class="k">Testing <br/>Environment</span><span class="v">Local &amp; Build <br/> Stage &amp; Integration <br/> UAT &amp; Preproduction <br/> Production</span></div>
@@ -482,9 +488,7 @@
           <a class="chip" href="https://en.wikipedia.org/wiki/Test_strategy" target="_blank" rel="noopener">Coding</a>
           <a class="chip" href="https://en.wikipedia.org/wiki/Test_plan" target="_blank" rel="noopener">Shell Scripting</a>
           <a class="chip" href="https://en.wikipedia.org/wiki/Manual_testing" target="_blank" rel="noopener">Source Control</a>
-          <a class="chip" href="https://en.wikipedia.org/wiki/Regression_testing" target="_blank" rel="noopener">Application Life-cycle Management</a>
-          <a class="chip" href="https://en.wikipedia.org/wiki/Integration_testing" target="_blank" rel="noopener">Containerization</a>
-          <a class="chip" href="https://en.wikipedia.org/wiki/Bug_tracking_system" target="_blank" rel="noopener">CI/CD</a>
+          <a class="chip" href="https://en.wikipedia.org/wiki/Regression_testing" target="_blank" rel="noopener">Application Life-cycle Management</a>        
         </div>
       </div>
       <div class="skill-group">
@@ -492,6 +496,7 @@
         <div class="chip-row">
           <a class="chip" href="https://www.selenium.dev/" target="_blank" rel="noopener">Back-end Development</a>
           <a class="chip" href="https://playwright.dev/" target="_blank" rel="noopener">Front-end Development</a>
+          <a class="chip" href="https://en.wikipedia.org/wiki/Integration_testing" target="_blank" rel="noopener">Containerization</a>
           <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Database Development</a>
           <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Unit Testing</a>
         </div>
@@ -499,18 +504,19 @@
       <div class="skill-group">
         <h3>Software Quality Engineering</h3>
         <div class="chip-row">
-          <a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener">Business Domain Testing</a>
-          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">API Testing</a>
-          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Database Testing</a>
-          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Performance Testing</a>
+          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">API & Backend Testing</a>
+          <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Database Validation</a>
+          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Non-Functional & Performance Testing</a>
           <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Test Automation</a>
-          <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">UAT Coordination</a>
+           <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Continuous Testing in CI/CD Pipelines</a>
+          <a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener">Functional & Business-domain Testing</a>
           <a class="chip" href="https://www.cypress.io/" target="_blank" rel="noopener">Test Management</a>
         </div>
       </div>
        <div class="skill-group">
         <h3>Soft skills</h3>
         <div class="chip-row">
+          <a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener">Technical Leadership</a>
           <a class="chip" href="https://github.com/features/actions" target="_blank" rel="noopener">Team Leadership</a>
           <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Mentorship</a>
           <a class="chip" href="https://azure.microsoft.com/en-us/products/devops/pipelines" target="_blank" rel="noopener">Cross-Functional Teamwork</a>
@@ -551,7 +557,7 @@
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">ASP.NET</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">WCF Services</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Web API</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SQL Server</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SQL Server DB</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Oracle DB</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Docker</a>
         </div>
@@ -572,16 +578,18 @@
       <div class="tool-group">
         <h3>Technical Testing</h3>
         <div class="chip-row">
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">NUnit</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">MSTest</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">xUnit.net</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Chai &amp; Mocha</a>
-          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">TestNG</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Postman</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SoapUI</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Rest-Assured</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">JMeter</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">OWASP ZAP</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">SQL Server MS</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Oracle SQL Developer</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">NUnit</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">MSTest</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">xUnit.net</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Chai &amp; Mocha</a>
+          <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">TestNG</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Selenium</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Appium</a>
           <a class="chip" href="https://git-scm.com/" target="_blank" rel="noopener">Playwright</a>
