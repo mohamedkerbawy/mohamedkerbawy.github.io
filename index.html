@@ -521,6 +521,46 @@
         </div>
         <!--<span class="link">Read case study →</span>-->
       </div>
+
+      <div class="case-card">
+        <span class="case-tag">Telecom</span>
+        <h3>Cross-Device Compatibility Testing for a Customer Mobile App</h3>
+        <p class="challenge">
+          Challenge: The app behaved inconsistently across devices, OS versions, and screen sizes, causing crashes and negative store reviews after each release.
+        </p>
+         <p class="solution">
+          Approach: Built a device coverage matrix from real usage analytics and automated the critical user journeys. Added backend API checks to separate app defects from service defects, and plugged the suite into the CI pipeline so every build ran against the prioritized devices.
+        </p>
+        <div class="case-result">Result: Device-specific crashes reduced by ~50%, with compatibility regressions caught before release</div>
+        <div class="stack">
+          <span class="chip">Compatibility Testing</span>
+          <span class="chip">Mobile Automation</span>
+          <span class="chip">Appium</span>
+          <span class="chip">Postman</span>  
+          <span class="chip">Jenkins</span>             
+        </div>
+        <!--<span class="link">Read case study →</span>-->
+      </div>
+
+        <div class="case-card">
+        <span class="case-tag">Insurance</span>
+        <h3>uilding Security and Code-Level Quality into a Customer Portal</h3>
+        <p class="challenge">
+          Challenge: Security flaws and untested business logic on a customer portal were found late in the cycle, or not at all.
+        </p>
+         <p class="solution">
+          Approach: Used white-box analysis to target unit tests at high-risk logic, and added automated OWASP ZAP scans with findings triaged alongside developers.
+        </p>
+        <div class="case-result">Result: Critical-logic unit coverage rose from under 30% to over 80%, and all high-severity vulnerabilities were fixed before go-live</div>
+        <div class="stack">
+          <span class="chip">Unit Testing</span>
+          <span class="chip">White-box Testing</span>
+          <span class="chip">Security Testing</span>
+          <span class="chip">Java</span>
+          <span class="chip">OWASP ZAP</span>           
+        </div>
+        <!--<span class="link">Read case study →</span>-->
+      </div>
     </div>
   </section>
 
